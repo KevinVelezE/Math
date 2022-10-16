@@ -1,0 +1,184 @@
+\documentclass{amsart}
+\input{../../preambles/homework}
+
+\title{Topología}
+\author{Kevin Velez}
+\date{\today}
+\usepackage{lipsum}
+\begin{document}
+
+\maketitle \thispagestyle{fancy}
+
+\qs{Problema en clase}{
+    Demostrar que $d$ es una métrica en $\Z^+$, donde $d$ está dada por:
+    
+    \begin{equation*}
+        d(n,m) = \abs{\frac{1}{n} - \frac{1}{m}}
+    \end{equation*}
+}
+\dem{
+    Debemos mostrar que $d$ satisface las cuatro propiedades para ser una métrica. Sean $n,m,k \in \Z^+$.
+    
+    \begin{enumerate}
+        \item[i)] $$ d(n,n) = \abs{\frac{1}{n} - \frac{1}{n}} = \abs{0} = 0 $$
+        \item[ii)] $ d(n,m) \geq 0$ por definición, ya que el valor absoluto es no negativo. 
+        \item[iii)] $$ d(n,m) = \abs{\frac{1}{n} - \frac{1}{m}} = \abs{(-1)\left( \frac{1}{m} - \frac{1}{n} \right)} = \abs{\frac{1}{m} - \frac{1}{n}} = d(m,n)$$
+        \item[iv)] $$ d(n,m) = \abs{\frac{1}{n} - \frac{1}{m}} = \abs{\frac{1}{n} - \frac{1}{k} + \frac{1}{k} - \frac{1}{m}} \leq \abs{\frac{1}{n} - \frac{1}{k}} + \abs{\frac{1}{k} - \frac{1}{m}} = d(n,k) + d(k,m) $$ 
+    \end{enumerate}
+
+    Por tanto, $d$ es una métrica.
+}
+
+\qs{Ejercicio 5(c). \emph{Elementos de topología - Garcia y Dal Lago} }{
+    Demostrar que $ A = \left\{ (x,y) \in \R^2: \; 0 < x < 1, \;  0 < y < 1, \;  x \neq \frac{1}{n} \;  \forall n \in \N \right\} \subseteq \R^2$ es un abierto de $\R^2$ con la métrica euclídea. 
+}
+\dem{
+    \begin{figure}[H]
+    \begin{center}
+        \begin{tikzpicture}[scale=4.5]
+            \draw[-{Latex}, dashed] (-0.1,0) -- (1.2,0);
+            \draw[-{Latex}, dashed] (0,-0.1) -- (0,1.2);
+            \draw[dashed] (1,0) -- (1,1);
+            \draw[dashed] (0,1) -- (1,1);
+            \node[below right] at (1.2,0) {\footnotesize $x$};
+            \node[above left] at (0,1.2) {\footnotesize $y$};
+            
+            \fill[gray!20, opacity=0.5] (0,0) rectangle (1,1);
+
+            \draw[dashed] (0.5,0) -- (0.5,1);
+            \draw[dashed] ({1/3},0) -- ({1/3},1);
+            \draw[dashed] ({1/4},0) -- ({1/4},1);
+            \draw[dashed] ({1/5},0) -- ({1/5},1);
+            \node at (0.12,0.5) {\tiny $\cdots$};
+
+            \node[below] at (0.5,0) {\tiny $\frac{1}{2}$};
+            \node[below] at ({1/3},0) {\tiny $\tfrac{1}{3}$};
+            \node[below] at ({1/4},0) {\tiny $\tfrac{1}{4}$};
+            
+            \coordinate (x) at (0.6,0.3);
+            \fill (x) circle (0.25pt) node[above right] {\tiny $(x,y)$};
+
+            
+            \draw[-{Latex}|, blue] (x) -- (0.6, 0);
+            \draw[-{Latex}|, blue ] (x) -- (0.5,0.3);
+            \draw[-{Latex}|, blue ] (x) -- (0.6,1);
+            \draw[-{Latex}|, blue ] (x) -- (1,0.3);
+
+            \node[below] at (0.8,0.3) {\tiny $d_3$};
+            \node[below] at (0.55,0.3) {\tiny $d_2$};
+            \node[right] at (0.6,0.65) {\tiny $d_1$};
+            \node[right] at (0.6,0.15) {\tiny $d_4$};
+            
+            % \node at (1.2, 0.65) {\tiny $d_1 = 1-y$};
+            % \node at (1.2, 0.55) {\tiny $d_2 = x-\frac{1}{k+1}$};
+            % \node at (1.2, 0.45) {\tiny $d_3 = y$};
+            % \node at (1.2, 0.35) {\tiny $d_4 = \frac{1}{n} - x$};
+
+            \node at (1.2, 0.5) {\tiny
+                $\begin{array}{ll}
+                    d_1 = &  \hspace*{-2.5mm} 1-y \\[1mm]
+                    d_2 = & \hspace*{-2.5mm} x - \frac{1}{k+1} \\[1mm]
+                    d_3 = & \hspace*{-2.5mm} \frac{1}{k}-x \\[1mm]
+                    d_4 = & \hspace*{-2.5mm} y
+                \end{array}$
+            };
+        \end{tikzpicture}
+    \end{center}
+    \end{figure}
+
+    Sea $(x,y) \in A$, vamos a mostrar que existe $r>0$ tal que $B((x,y), r) \subseteq A$. Tenemos entonces que $ 0<x<1$, por lo que $ \frac{1}{x} > 1$, existe un $k \in \N$ tal que $k < \frac{1}{x} < k + 1$, luego $\frac{1}{k+1} < x < \frac{1}{k}$, además, $ 0 < y < 1$. Consideramos entonces el radio $r = \min\left\{ 1-y, x - \frac{1}{k+1}, \frac{1}{k} - x, y \right\} > 0$, y la bola abierta $B((x,y), r)$.
+
+    Sea $(u,v) \in B((x,y), r)$, entonces, como la métrica es la euclídea, se tiene que
+    
+    \begin{align}
+        d((x,y), (u,v)) &< r \nonumber \\ 
+        \sqrt{ (x-u)^2 + (y-v)^2 } &< r \nonumber \\
+        (x-u)^2 + (y-v)^2 &< r^2 \label{eq:euc}
+    \end{align}
+    
+    Como $(y-u)^2 > 0$, entonces $(x-u)^2 < r^2$, así
+
+    \begin{align*}
+        (x-u)^2 &< r^2 \\
+        \abs{x-u} &< \abs{r} \\
+        \abs{x-u} &< r \\
+        -r < x-u &< r \\
+        -r < u-x &< r \\
+    \end{align*}
+
+    por definición, $ r \leq \frac{1}{k} - x$, y $r \leq x - \frac{1}{k+1}$, por lo que $-r \geq \frac{1}{k+1} - x$, entonces
+
+    \begin{align*}
+        \frac{1}{k+1} - x \leq -r < u - x &< r \leq \frac{1}{k} - x \\
+        \frac{1}{k+1} - \cancelc[red]{x} < u - \cancelc[red]{x} &< \frac{1}{k} - \cancelc[red]{x} \\
+        \frac{1}{k+1} < u &< \frac{1}{k} \\
+    \end{align*}
+
+    Análogamente, en \eqref{eq:euc}, como $(x-u)^2 > 0$, entonces $(y-v)^2 < r^2$, así
+
+    \begin{align*}
+        (y-v)^2 &< r^2 \\
+        \abs{y-v} &< \abs{r} \\
+        \abs{y-v} &< r \\
+        -r < y-v &< r \\
+        -r < v-y &< r \\
+    \end{align*}
+
+    por definición, $ r \leq 1-y$, y $r \leq y$, por lo que $-r \geq -y$, entonces
+
+    \begin{align*}
+        -y \leq -r < v-y &< r \leq 1-y \\
+        -\cancelc[red]{y} < v - \cancelc[red]{y} &< 1-\cancelc[red]{y} \\
+        0 < v  &< 1 \\
+    \end{align*}
+
+    Así, tenemos que $0 < v < 1$ y $\frac{1}{k+1} < u < \frac{1}{k}$, por lo que $(u,v) \in A$, y por tanto $B((x,y), r) \subseteq A$. Luego, $A$ es un abierto de $\R^2$
+}
+\newpage
+\qs{Ejercicio 8. \emph{Elementos de topología - Garcia y Dal Lago}}{
+    Sea $E$ un espacio métrico, $A \subseteq E$ y $x \in E$. Se define la distancia de $x$ a $A$ por
+
+    $$ d(x,A) = \inf \left\{ d(x,y) : y \in A \right\} $$
+
+    \begin{enumerate}
+        \item[a)] Demostrar que si definimos $\delta: E \to \R$ por $\delta(x)=d(x,A)$, $\delta$ es continua.
+        \item[b)] Probar que si $r>0$, $\left\{ x : d(x,A)\leq r \right\}$ es cerrado
+    \end{enumerate}
+}
+
+\dem{
+    \begin{enumerate}
+        \item[a)] Sea $x, x_0 \in E$, y $a \in A$, entonces $d(x, a) \leq d(x, x_0) + d(x_0, a) $, como $d(x,A) \leq d(x,a)$ por ser el ínfimo, entonces $d(x,A) \leq d(x, x_0) + d(x_0, a)$, así, se tiene que 
+        
+        $$ \delta(x) \leq d(x, x_0) + d(x_0, a) $$
+        
+        Esto se cumple para todo para todo $a \in A$, en particular, para el ínfimo. Como 
+        
+        $\inf \left\{ d(x, x_0) + d(x_0, a) : a \in A \right\} = d(x,x_0) + \inf \left\{ d(x_0, a) : a \in A \right\} = d(x,x_0) + \delta(x_0)$. Por lo que
+        
+        \begin{align*}
+            \delta(x) \leq d(x, x_0) + \delta(x_0) \\
+            \delta(x) - \delta(x_0) \leq d(x, x_0)
+        \end{align*}
+
+        De manera análoga, partiendo de $d(x_0, a) \leq d(x_0, x) + d(x, a)$, se llega a que $\delta(x) - \delta(x_0) \geq - d(x_0, x)$, por lo que
+        $$ \abs{\delta(x) - \delta(x_0)} \leq d(x, x_0) $$
+
+        Ahora, sea $\varepsilon > 0$, podemos tomar $x_0$ $\varepsilon$-cercano a $x$, de tal manera que $ d(x, x_0) = \varepsilon $, en otras palabras, tomamos $r = \varepsilon$ y tenemos que $d(x, x_o) \leq r = \varepsilon$ implica que $ \abs{\delta(x) - \delta(x_0)} \leq d(x, x_0) \leq r = \varepsilon $. Lo cual quiere decir, que la función $\delta$ es continua para todo punto $x \in E$
+
+        \item[b)] Sea $r > 0$, vamos a probar que $ B = \left\{ x : d(x,A) \leq r \right\}$ es cerrado. Notemos que $ B = \delta^{-1}\left( [0,1] \right) $. Como $\delta$ es continua, entonces preimagen de cerrados es cerrado, y como $[0,1]$ es cerrado, entonces $B$ es cerrado. 
+    \end{enumerate}
+}
+
+\qs{Ejercico 6. \emph{Topología - Munkres}}{
+    Pruebe que las topologías de $\R_\ell$ y $\R_K$ no son comparables.
+}
+\dem{
+    Sean $\tau_\ell$ y $\tau_K$ las topologías de $\R_\ell$ y $\R_K$ respectivamente. Consideremos el elemento básico $[0,1)$ para $\tau_\ell$. No hay ningún básico para $\tau_K$ que contenga al 0, y este contenido en $[0,1)$, así que $\tau_\ell \cancel{\subset} \tau_K$.
+    
+    Ahora, consideremos consideremos el básico $(-1,1) \setminus K$ para $\tau_K$, No existe ningún básico para $\tau_\ell$ que contenga al 0, y este contenido en $(-1,1) \setminus K$, así que $\tau_K \cancel{\subset} \tau_\ell$.
+
+    Por lo tanto, $\tau_\ell$ y $\tau_K$ no son comparables.
+}
+
+\end{document}

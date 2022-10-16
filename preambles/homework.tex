@@ -16,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{float}
 \usepackage{subfigure}
+\usepackage{wrapfig}
 
 % color boxes 
 \usepackage[most,many,breakable]{tcolorbox}
@@ -27,6 +28,10 @@
 \usepackage{tikz}
 \usetikzlibrary{angles, calc, arrows, arrows.meta}
 \AtBeginEnvironment{tikzpicture}{\shorthandoff{>}\shorthandoff{<}}{}{}
+
+% cancel
+\usepackage[makeroom]{cancel}
+\newcommand\cancelc[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
 
 % fancy settings
 \setlength{\headheight}{18pt}
@@ -84,6 +89,8 @@
 \newcommand{\C}{\mathbb{C}}
 
 \newcommand{\Bb}{\mathcal{B}}
+
+\newcommand{\dd}{\mathrm{d}}
 
 % shortcuts for some math operators
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
