@@ -1,0 +1,163 @@
+\documentclass{amsart}
+\input{../../preambles/homework.tex}
+\usepackage{fontawesome5}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+\title{Cuadratura real - Historia de las matemáticas}
+\author{Jose Prado, Diego Tarapuez, Kevin Velez}
+\date{Octubre 2022}
+
+\begin{document}
+\maketitle \thispagestyle{fancy}
+\qs{Cuadratura real de un rectángulo}{
+    Dado un rectángulo cualquiera $a \cdot b$, como convertirlo en un cuadrado $c^2$, de tal manera que $a \cdot b = c^2$. usando solo recortes, traslaciones y rotaciones.
+}
+
+\dem{
+    Sea el rectángulo dado $a \cdot b$ de la figura \ref{fig:rectangulo_original}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw[thick] (0,0) rectangle (6,3);
+            \node[left] at (0, 1.5) {$a$};
+            \node[below] at (3, 0) {$b$};
+        \end{tikzpicture}
+        \label{fig:rectangulo_original}
+        \caption{Rectángulo dado $a \cdot b$}
+    \end{figure}
+
+    Sobreponemos el lado más pequeño del rectángulo un segmento de la longitud del lado del cuadrado, es decir, $c$, de tal manera que $c^2 = a \cdot b$.
+
+    Luego, trazamos un corte, siguiendo la recta que una al vértice inferior derecho del rectángulo con el extremo superior del segmento trazado.
+
+    \begin{figure}[H]
+        \begin{tikzpicture}
+
+            \fill[cyan!10] (6,0) -- (6,3) -- +(-{18^(1/2)},0) -- cycle;
+
+            \draw[thick] (0,0) rectangle (6,3);
+            
+            \node[below] at (3, 0) {$b$};
+
+            \draw[blue, thick] (0,0) -- (0,{18^(1/2)});
+
+            \draw[dashed] (6,0) -- (0,{18^(1/2)});
+            \draw(6,0) ++ (144.74:1) node[rotate=144.74] {\faCut};
+
+            \draw[|{Latex}-{Latex}|] (-0.25,0) -- (-0.25,3);
+            \node[fill=white] at (-0.25, 1.5) {$a$};
+            \draw[|{Latex}-{Latex}|] (-0.75,0) -- (-0.75,{18^(1/2)});
+            \node[fill=white] at (-0.75, {18^(1/2)/2}) {$c$};
+        \end{tikzpicture}
+    \end{figure}
+
+    Después, desplazamos el triángulo recortado, hasta que el vértice superior izquierdo coincida con el extremo del segmento $c$ trazado inicialmente.
+    
+    \newpage
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \fill[cyan!10] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3) -- (0,{18^(1/2)}) -- cycle;
+
+            %\draw[thick] (0,0) -- (0,{18^(1/2)});
+            \draw[thick] (0,0) -- (0,3);
+            \draw[thick] (6,0) -- (0,{18^(1/2)});
+            \draw[thick] (0,3) -- + ({6-18^(1/2)}, 0);
+
+            \draw[thick] (0,0) -- (6,0);
+
+            \draw[thick] (0,{18^(1/2)}) -- ({18^(1/2)},{18^(1/2)});
+            \draw[thick] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3);
+
+            \draw[thick, blue] (0,0) -- (0,{18^(1/2)});
+            \node[left, thick] at (0, {18^(1/2)/2}) {$c$};
+        \end{tikzpicture}
+    \end{figure}
+    
+    Seguido a esto, recortamos el triángulo sobrante, siguiendo la recta del triángulo desplazado.
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \fill[cyan!10] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3) -- (0,{18^(1/2)}) -- cycle;
+            \fill[violet!15] (6,0) -- ({18^(1/2)},0) -- ({18^(1/2)},{18^(1/2)-3}) -- cycle;
+
+            %\draw[thick] (0,0) -- (0,{18^(1/2)});
+            \draw[thick] (0,0) -- (0,3);
+            \draw[thick] (6,0) -- (0,{18^(1/2)});
+            \draw[thick] (0,3) -- + ({6-18^(1/2)}, 0);
+
+            \draw[thick] (0,0) -- (6,0);
+
+            \draw[thick] (0,{18^(1/2)}) -- ({18^(1/2)},{18^(1/2)});
+            \draw[thick] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3);
+
+            \draw[thick, blue] (0,0) -- (0,{18^(1/2)});
+            \node[left, thick] at (0, {18^(1/2)/2}) {$c$};
+
+            \draw[dashed] ({18^(1/2)},0) -- + (0, {18^(1/2)-3});
+            \node[rotate=90] at ({18^(1/2)}, {(18^(1/2)-3)/4}) {\faCut};
+        \end{tikzpicture}
+    \end{figure}
+
+    Por último, desplazamos el triángulo recortado, al espacio restante que no queda, para así formar finalmente el cuadrado.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \fill[cyan!10] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3) -- (0,{18^(1/2)}) -- cycle;
+            \fill[violet!15] (0,{18^(1/2)}) -- (0,3) -- +({18^(1/2)-2.5}, 0);
+            \draw[thick] (0,0) -- (0,3);
+            \draw[thick] (0,3) -- + ({6-18^(1/2)}, 0);
+            \draw[thick] (0,{18^(1/2)}) -- ({18^(1/2)}, {18^(1/2)-3});
+            \draw[thick] (0,0) -- ({18^(1/2)},0);
+            \draw[thick] ({18^(1/2)},0) -- +(0, {18^(1/2)-3});
+
+            \draw[thick] (0,{18^(1/2)}) -- ({18^(1/2)},{18^(1/2)});
+            \draw[thick] ({18^(1/2)}, {18^(1/2)}) -- +(0,-3);
+
+            \draw[thick, blue] (0,0) -- (0,{18^(1/2)});
+            \node[left, thick] at (0, {18^(1/2)/2}) {$c$};
+        \end{tikzpicture}
+    \end{figure}
+
+    \textit{\textbf{Nota:}} El último triángulo recortado (el sobrante) y el triángulo en el espacio que queda el desplazar el primer triángulo son congruentes, por lo que la construcción tiene sentido. Esto debido a que ambos son triángulos rectángulos, por lo que tienen un ángulo igual. Además, su hipotenusa es la misma recta, que es transversal a dos paralelas, por lo que sus ángulos correspondientes son iguales, y en consecuencia sus tres ángulos son iguales.
+
+    Por otro lado, el triángulo al desplazarse hacia arriba, deja la misma magnitud por debajo de la que recorre hacia arriba, por lo que los dos triángulos de interés tienen un lado igual, luego, por congruencia ALA los dos triángulos son congruentes.
+}
+
+\newpage
+
+\qs{}{
+    Dado el arreglo de la siguiente figura
+    \begin{center}
+        \begin{tikzpicture}
+            \filldraw (0,0) circle (1.5pt);
+            \filldraw (6,0) circle (1.5pt);
+            \draw[thick] (0,0) -- (6,0);
+
+            \filldraw (3,0) circle (1.5pt);
+            \filldraw (4,0) circle (1.5pt);
+            
+            \draw [thick, violet, decorate, decoration = {brace}] (0,0.2) --  (3,0.2);
+            \draw [thick, violet, decorate, decoration = {brace}] (3,0.2) --  (6,0.2);
+
+            \draw [thick, magenta, decorate, decoration = {brace}, xshift=4cm, rotate=180] (0,0.2) --  (4,0.2);
+            \draw [thick, magenta, decorate, decoration = {brace}, xshift=10cm, rotate=180] (4,0.2) --  (6,0.2);
+
+            \node[violet, above] at (1.5,0.3) {$a$};
+            \node[violet, above] at (4.5,0.3) {$a$};
+
+            \node[magenta, below] at (2,-0.3) {$b$};
+            \node[magenta, below] at (5,-0.3) {$c$};
+
+            \draw [thick, olive, decorate, decoration = {brace}, xshift=7cm, rotate=180] (3,0.4) --  (4,0.4);
+
+            \node[olive, below] at (3.5,-0.5) {$d$};
+        \end{tikzpicture}
+    \end{center}
+    Mostrar que $a^2 = b \cdot c + d^2$
+}
+
+\end{document}
