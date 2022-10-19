@@ -1,0 +1,146 @@
+\documentclass{amsart}
+\input{../../preambles/homework.tex}
+
+\title{Taller 1 - Lógica Matemática}
+\author{Kevin Velez Escarria}
+\date{Octubre, 2022}
+
+\begin{document}
+\maketitle \thispagestyle{fancy}
+Axiomas \par 
+$
+\begin{array}{lll}
+    1. & AX_1: & \alpha \to (\beta \to \alpha) \\
+    2. & AX_2: & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) \\
+    3. & AX_3: & (\neg \alpha \to \neg \beta) \to (\beta \to \alpha) \\
+    4. & MP: & \begin{array}{l}
+        \alpha \to \beta \\
+        \alpha \\
+        \hline
+        \beta \\ 
+    \end{array}
+\end{array}
+$
+
+\qs{}{
+    Mostrar que si de $\Gamma \vdash \alpha $ y de $ \alpha \vdash \neg \beta$ entonces $\Gamma \vdash \beta$
+}
+\dem{ \, \par \vspace*{1em}
+    $
+    \begin{array}{lll}
+        1. & \Gamma & P \\
+        2. & \alpha & \mbox{Primer resultado}\\
+        3. & \neg \beta & \mbox{Segundo resultado} \\
+        4. & \mbox{no se cumple} & \mbox{Por hipótesis} \\
+    \end{array}
+    $
+}
+
+\qs{}{
+    Demostrar que:
+    \begin{enumerate}
+        \item[a)] $\vdash (\neg \neg \beta \to \neg \alpha) \to (\alpha \to \neg \beta)$
+        \item[b)] $\alpha \to \beta, \beta \to \gamma \vdash \alpha \to \gamma$
+        \item[c)] $(\alpha \to \beta) \vdash \neg \beta \to \neg \alpha$
+        \item[d)] $ \vdash (\beta \to \gamma) \to ((\alpha\to\beta) \to (\alpha\to\gamma)) $ 
+        \item[e)] $\vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma))$ 
+    \end{enumerate}
+}
+\dem{
+    \begin{enumerate}
+        \item[a)] $\vdash (\neg \neg \beta \to \neg \alpha) \to (\alpha \to \neg \beta)$ \\
+        $
+        \begin{array}{lll}
+            1. & (\neg \neg \beta \to \neg \alpha) \vdash \alpha \to \neg \beta & TD \\
+            2. & (\neg \neg \beta \to \neg \alpha), \alpha \vdash \neg \beta & TD \\
+            3. & (\neg \neg \beta \to \neg \alpha) \to (\alpha \to \neg \beta)  & AX_3 \\
+            4. & (\neg \neg \beta \to \neg \alpha) & P \\
+            5. & \alpha \to \neg \beta & MP(5,4) \\
+            6. & \alpha & P \\
+            \hline
+            7. & \neg \beta & MP(7,6) \\
+        \end{array}
+        $
+        \vspace*{1em}
+        \item[b)] $ \alpha \to \beta, \beta \to \gamma \vdash \alpha \to \gamma $ \\
+        $
+        \begin{array}{lll}
+            1. & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & AX_2 \\
+            2. & \beta \to \gamma & P \\
+            3. & \alpha \to (\beta \to \gamma) & \mbox{Teorema en clase a 2.} \\
+            4. & (\alpha \to \beta) \to (\alpha \to \gamma) & MP(3,1) \\
+            5. & \alpha \to \beta & P \\
+            \hline
+            6. & \alpha \to \gamma & MP(5,4)
+        \end{array}
+        $
+
+        \item[c)] $(\alpha \to \beta) \vdash \neg \beta \to \neg \alpha$ \\ 
+        $
+        \begin{array}{lll}
+            1. & \neg \neg \alpha \to \alpha & \mbox{Prop 7.4} \\
+            2. & \alpha \to \beta & P \\
+            3. & \beta \to \neg \neg \beta & \mbox{Prop 7.4} \\
+            4. & \neg \neg \alpha \to \beta & \mbox{b) (1,2,3)} \\ 
+            5. & \neg \neg \alpha \to \neg \neg \beta & \mbox{\mbox{b) (4,3,5)}} \\
+            6. & (\neg \neg \alpha \to \neg \neg \beta) \to (\neg \beta \to \neg \alpha) & AX_3 \\
+            \hline \\ 
+            7. & \neg \beta \to \neg \alpha & MP(5,6)
+        \end{array}
+        $
+        
+        \item[d)] $ \vdash (\beta \to \gamma) \to ((\alpha\to\beta) \to (\alpha\to\gamma)) $ \\
+        $
+        \begin{array}{lll}
+            1. & ( (\beta \to \gamma) \to ( (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) ) ) \to & \\ 
+            & ( ( (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) ) \to ( (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) ) ) & AX_2 \\
+            2. & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & AX_2 \\
+            3. & (\beta \to \gamma) \to ( (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) ) & \mbox{Teorema en clase a 2.} \\ 
+            4. & ( (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) ) \to ( (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) ) & MP(4,1) \\ 
+            5. & (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) & AX_1 \\ 
+            \hline
+            6. & (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) & MP(5,4)
+        \end{array}
+        $
+
+        \item[d)] $ \vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma)) $ 
+    \end{enumerate}
+}
+
+\qs{}{
+    Demuestrar sin utilizar $TD$, ni $RA$, los ejercicios d) y e) del item anterior.
+}
+
+\dem{
+    \begin{enumerate}
+        \item[d)] \, \\
+        $
+        \begin{array}{lll}
+            1. & \vdash (\beta \to \gamma) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & 
+        \end{array}
+        $
+    \end{enumerate}
+}
+
+\qs{}{
+    Si se escoge a $\{\neg, \vee \}$ como conjunto completo de conectivos; y como sistema deductivo:
+    
+    $
+    \begin{array}{ll}
+        AX_1: & \neg(\alpha \vee \alpha) \vee \alpha \\
+        AX_2: & \neg \alpha \vee \alpha \vee \beta\\
+        AX_3: & \neg (\alpha \vee \beta) \vee \beta \vee \alpha \\
+        AX_4: & \neg(\neg \alpha \vee \beta) \vee \neg (\gamma \vee \alpha) \vee \gamma \vee \beta \\
+        MP: & \begin{array}{l}
+            \neg \alpha \vee \beta \\
+            \alpha \\
+            \hline
+            \beta \\ 
+        \end{array}
+    \end{array}
+    $
+    3
+    Demostrar el teorema $\vdash \neg \alpha \vee \alpha$.
+}
+
+\end{document}
