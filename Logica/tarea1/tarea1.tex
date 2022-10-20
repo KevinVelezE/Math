@@ -7,34 +7,11 @@
 
 \begin{document}
 \maketitle \thispagestyle{fancy}
-Axiomas \par 
-$
-\begin{array}{lll}
-    1. & AX_1: & \alpha \to (\beta \to \alpha) \\
-    2. & AX_2: & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) \\
-    3. & AX_3: & (\neg \alpha \to \neg \beta) \to (\beta \to \alpha) \\
-    4. & MP: & \begin{array}{l}
-        \alpha \to \beta \\
-        \alpha \\
-        \hline
-        \beta \\ 
-    \end{array}
-\end{array}
-$
 
 \qs{}{
     Mostrar que si de $\Gamma \vdash \alpha $ y de $ \alpha \vdash \neg \beta$ entonces $\Gamma \vdash \beta$
 }
-\dem{ \, \par \vspace*{1em}
-    $
-    \begin{array}{lll}
-        1. & \Gamma & P \\
-        2. & \alpha & \mbox{Primer resultado}\\
-        3. & \neg \beta & \mbox{Segundo resultado} \\
-        4. & \mbox{no se cumple} & \mbox{Por hipótesis} \\
-    \end{array}
-    $
-}
+\dem{}
 
 \qs{}{
     Demostrar que:
@@ -43,7 +20,9 @@ $
         \item[b)] $\alpha \to \beta, \beta \to \gamma \vdash \alpha \to \gamma$
         \item[c)] $(\alpha \to \beta) \vdash \neg \beta \to \neg \alpha$
         \item[d)] $ \vdash (\beta \to \gamma) \to ((\alpha\to\beta) \to (\alpha\to\gamma)) $ 
-        \item[e)] $\vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma))$ 
+        \item[e)] $\vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma))$
+        \item[f)] $\vdash (\alpha \wedge \beta) \to \alpha$
+        \item[g)] $\vdash (\alpha \wedge \beta) \to \beta$
     \end{enumerate}
 }
 \dem{
@@ -58,7 +37,7 @@ $
             5. & \alpha \to \neg \beta & MP(5,4) \\
             6. & \alpha & P \\
             \hline
-            7. & \neg \beta & MP(7,6) \\
+            7. & \neg \beta & MP(7,6)
         \end{array}
         $
         \vspace*{1em}
@@ -67,14 +46,14 @@ $
         \begin{array}{lll}
             1. & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & AX_2 \\
             2. & \beta \to \gamma & P \\
-            3. & \alpha \to (\beta \to \gamma) & \mbox{Teorema en clase a 2.} \\
+            3. & \alpha \to (\beta \to \gamma) & \mbox{Prop 7.1} \\
             4. & (\alpha \to \beta) \to (\alpha \to \gamma) & MP(3,1) \\
             5. & \alpha \to \beta & P \\
             \hline
             6. & \alpha \to \gamma & MP(5,4)
         \end{array}
         $
-
+        \vspace*{1em}
         \item[c)] $(\alpha \to \beta) \vdash \neg \beta \to \neg \alpha$ \\ 
         $
         \begin{array}{lll}
@@ -88,22 +67,52 @@ $
             7. & \neg \beta \to \neg \alpha & MP(5,6)
         \end{array}
         $
-        
+        \vspace*{1em}
         \item[d)] $ \vdash (\beta \to \gamma) \to ((\alpha\to\beta) \to (\alpha\to\gamma)) $ \\
         $
         \begin{array}{lll}
             1. & ( (\beta \to \gamma) \to ( (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) ) ) \to & \\ 
             & ( ( (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) ) \to ( (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) ) ) & AX_2 \\
             2. & (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & AX_2 \\
-            3. & (\beta \to \gamma) \to ( (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) ) & \mbox{Teorema en clase a 2.} \\ 
+            3. & (\beta \to \gamma) \to ( (\alpha \to (\beta \to \gamma)) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) ) & \mbox{Prop 7.1.} \\ 
             4. & ( (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) ) \to ( (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) ) & MP(4,1) \\ 
             5. & (\beta \to \gamma) \to ( \alpha \to (\beta \to \gamma)) & AX_1 \\ 
             \hline
             6. & (\beta \to \gamma) \to ((\alpha\to\beta)\to(\alpha\to\gamma )) & MP(5,4)
         \end{array}
         $
-
-        \item[d)] $ \vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma)) $ 
+        \vspace*{1em}
+        \item[e)] $ \vdash (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma)) $ \\
+        $
+        \begin{array}{lll}
+            1. & ( (\beta \to \gamma) \to ((\alpha \to \beta) \to (\alpha \to \gamma))) \to & \\
+            & \qquad \qquad \qquad (((\beta \to \gamma) \to (\alpha \to \beta)) \to ((\beta \to \gamma) \to (\alpha \to \gamma))) & AX_2 \\
+            2. & (\beta \to \gamma) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & \mbox{(d)} \\
+            3. & ((\beta \to \gamma) \to (\alpha \to \beta)) \to ((\beta \to \gamma) \to (\alpha \to \gamma)) & MP(1,2)  \\
+            4. & (\alpha \to \beta) \to (((\beta \to \gamma) \to (\alpha \to \beta)) \to ((\beta \to \gamma) \to (\alpha \to \gamma))) & \mbox{Prop 7.1} \\
+            5. & (4) \to (((\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \beta))) \to ((\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \gamma)))) & AX_2 \\
+            6. & ((\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \beta))) \to ((\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \gamma))) & MP(5,4) \\
+            7. & (\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \beta)) & AX_1 \\
+            \hline
+            8. & (\alpha \to \beta) \to ((\beta \to \gamma) \to (\alpha \to \gamma)) & MP(7,6)
+        \end{array}
+        $
+        \vspace*{1em}
+        \item[f)] $ \vdash (\alpha \to \beta) \to (\alpha \to \neg \beta) \to \neg \alpha $ \\
+        $
+        \begin{array}{lll}
+            1. & \alpha, \beta \vdash \alpha & TD \\
+            2. & \alpha & P
+        \end{array}
+        $
+        \vspace*{1em}
+        \item[g)] $ \vdash (\alpha \to \beta) \to (\alpha \to \neg \beta) \to \neg \beta $ \\
+        $
+        \begin{array}{lll}
+            1. & \alpha, \beta \vdash \alpha & TD \\
+            2. & \beta & P
+        \end{array}
+        $
     \end{enumerate}
 }
 
@@ -112,19 +121,11 @@ $
 }
 
 \dem{
-    \begin{enumerate}
-        \item[d)] \, \\
-        $
-        \begin{array}{lll}
-            1. & \vdash (\beta \to \gamma) \to ((\alpha \to \beta) \to (\alpha \to \gamma)) & 
-        \end{array}
-        $
-    \end{enumerate}
+    Se hizo en el problema 2.
 }
 
 \qs{}{
-    Si se escoge a $\{\neg, \vee \}$ como conjunto completo de conectivos; y como sistema deductivo:
-    
+    Si se escoge a $\{\neg, \vee \}$ como conjunto completo de conectivos; y como sistema deductivo:\\
     $
     \begin{array}{ll}
         AX_1: & \neg(\alpha \vee \alpha) \vee \alpha \\
@@ -135,12 +136,94 @@ $
             \neg \alpha \vee \beta \\
             \alpha \\
             \hline
-            \beta \\ 
+            \beta 
         \end{array}
     \end{array}
     $
-    3
+    \\
     Demostrar el teorema $\vdash \neg \alpha \vee \alpha$.
+}
+
+\dem{\, \\[1em]
+    $
+    \begin{array}{lll}
+        1. & \neg (\neg (\alpha \vee \alpha) \vee \alpha) \vee \neg (\neg \alpha \vee \alpha \vee \alpha) \vee \neg \alpha \vee \alpha & AX_4 \\
+        2. & \neg ( \alpha \vee \alpha ) \vee \alpha & AX_1 \\
+        3 & \neg (\neg \alpha \vee \alpha \vee \alpha) \vee \neg \alpha \vee \alpha & MP(2,1) \\
+        4.& \neg \alpha \vee \alpha \vee \alpha & AX_2 \\
+        \hline
+        5. & \neg \alpha \vee \alpha & MP(4,3)
+    \end{array}
+    $
+}
+\qs{}{
+    Utilizando la siguiente igualdad $p \vee q = \neg p \to q$, muestre que el sistema deductivo anterior se presenta por: \\
+    $
+    \begin{array}{ll}
+        AX_1: & (\alpha \vee \alpha) \to \alpha  \\
+        AX_2: & (\alpha \to \alpha) \vee \beta \\
+        AX_3: &  (\alpha \vee \beta) \to (\beta \vee \alpha) \\
+        AX_4: & (\alpha \vee \beta) \to ((\gamma\vee\alpha)\to(\gamma\vee\alpha)) \\
+        MP: & \begin{array}{l}
+            \alpha \\
+            \alpha \to \beta \\
+            \hline
+            \beta
+        \end{array}
+    \end{array}
+    $
+}
+
+\dem{}
+
+\qs{}{
+    Use el sistema deductivo del ejercicio anterior para demostrar el teorma
+    \begin{enumerate}
+        \item[a)] $\vdash \alpha \to \alpha$
+        \item[b)] $\vdash (\alpha \to \beta) \to (\neg \beta \to \neg \alpha) $ 
+    \end{enumerate}
+}
+
+\dem{
+    \begin{enumerate}
+        \item[a)] $\vdash \alpha \to \alpha$ \\[1em]
+        $
+        \begin{array}{lll}
+            1. & & 
+        \end{array}
+        $
+    \end{enumerate}
+}
+
+\qs{}{
+    Si se escoge $\{\neg, \to\}$ como conjunto completo de conectivos; y como sistema deductivo:\\[1em]
+    $
+    \begin{array}{ll}
+        AX_1: & (\alpha \to \beta) \to ((\beta\to\gamma)\to(\alpha\to\gamma)) \\ 
+        AX_2: & \alpha \to (\neg \alpha \to \beta) \\ 
+        AX_3: & (\neg \alpha \to \alpha) \to \alpha \\
+        MP: & \begin{array}{l}
+            \alpha \to \beta \\
+            \alpha \\
+            \hline
+            \beta
+        \end{array}
+    \end{array}
+    $\\
+    Demostrar el teorema $\vdash \alpha \to \alpha$
+}
+
+\dem{\\[1em]
+    $
+    \begin{array}{lll}
+        1. & (\alpha \to (\neg \alpha \to \alpha) ) \to (((\neg \alpha \to \alpha) \to \alpha) \to (\alpha \to \alpha))  & AX_1 \\
+        2. & \alpha \to (\neg \alpha \to \alpha)  & AX_2 \\
+        3. & ((\neg \alpha \to \alpha) \to \alpha) \to (\alpha \to \alpha) & MP(1,2) \\
+        4. & (\neg \alpha \to \alpha) \to \alpha & AX_3 \\
+        \hline
+        5. & \alpha \to \alpha & MP(4,3)
+    \end{array}
+    $
 }
 
 \end{document}
