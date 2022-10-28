@@ -1,0 +1,51 @@
+\documentclass{amsart}
+\input{../../preambles/homework.tex}
+
+\title{TAREA 3}
+\author{Alejandro Umaña, Kevin Velez}
+\date{Octubre 2022}
+
+\begin{document}
+\maketitle \thispagestyle{fancy}
+
+\qs{}{
+    Sean $A$, $B$, segmentos, demuestre que si $ \frac{A}{B} = \frac{C}{D} $ entonces $ \frac{A}{C} = \frac{B}{D} $
+}
+
+\dem{
+    Por hipotesis tenemos que $ \frac{A}{B} = \frac{C}{D} $ esto significa por definición que si $ nA = mB $ entonces $nC = mD$
+
+    $ \Rightarrow)$ Supongamos que $ \frac{A}{C}$ esto significa que $nA = nC$, y por tanto tenemos $nA = nC = mB$
+
+    Partiendo de $nA = mB$ agregamos cosas iguales a cosas iguales
+
+    \begin{align*}
+        nA + nC &= nC + mB \quad \mbox{Pero} \quad nC = mD \\
+        nA + mD &= nC + mB \quad \mbox{Pero} \quad nC = nA \\
+        nA + mD &= mB + nA \quad \mbox{Quitando coas iguales} \\
+        mD &= mB
+    \end{align*}
+
+    Esto quiere decir que si $nA = nC$ entonces $mD = mB$ pero por definición significa que $\frac{A}{C} = \frac{B}{D}$.
+
+    $\Leftarrow)$ Supongamos que $\frac{B}{D}$ esto significa por definición que $mB = mD$, por tanto $mD = mB = nC$
+
+    Partiendo de $nA = mB$ entonces $nA + mD = mB + mD$, pero $mD = nC$, por lo que $nA + mD = mB + nC$, pero $mD = mB$ entonces $nA + mB = mB + nC$, así que $nA = nC$.
+    Esto significa que $\frac{A}{C}$, por tanto $nA = mB$, entonces $nA = nC \Rightarrow \frac{B}{D} = \frac{A}{C}$.
+}
+
+\qs{}{
+    Sean $A$, $B$ segmentos, con $A>B$. Demuestre que $ \frac{A}{G} > \frac{B}{G} $
+}
+
+\dem{
+    Supongamos que $A > B$. Sea $C$ el segmento tal que $B + C  = A$.
+    
+    Tomemos $mA, mB$ y $nG$ tal que $mA, mC > G$. Tomemos $nG$ el menor múltiplo de $G$ que hace que $nG \geq mB$. Por tanto, $mB$ no es mayor que $nG$.
+
+    Pero $mA > nG$, en efecto, como $nG$ es el menor múltiplo que hace $nG \geq mB$, entonces $nG - G < mB$ y tenemos que $G < mC$, por tanto, $nG - \cancelc[red]{G} + \cancelc[red]{G} < mB + mC$, es decir $nG < mA$.
+
+    Luego, tenemos que $\frac{A}{G} > \frac{B}{G}$.
+}
+
+\end{document}
