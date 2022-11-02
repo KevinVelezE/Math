@@ -9,43 +9,35 @@
 \maketitle \thispagestyle{fancy}
 \qs{Ejercicio 2.b)}{
     Sea $ X =\Z^+ $. Sea $ A \subseteq X $, se define la densidad de $ A $ como el número
-    
     $$ \rho(A) = \lim_{n \to \infty}{ \frac{\abs{ A \cap [n] }}{n} } $$
-
     donde $ [n] = \{1, 2, \ldots, n\} $ y $ \abs{S} $ denota la cardinalidad de $ S $.
 
     Sea 
-    
     $$ \tau = \left\{ A \subseteq X | 1 \notin A \vee \rho(A) = 1 \right\} $$
-
     Caracterice los cerrados en la topología $ \tau $.
 }
 
 \dem{
     Los cerrados de $ X $ con la topología $ \tau $ son
-
     \begin{align*}
         \mathscr{C} &= \left\{ B \subseteq X \, | \, X - B \in \tau \right\} \\ 
         \mathscr{C} &= \left\{ B \subseteq X \, | \, 1 \notin X - B \vee \rho(X - B) = 1 \right\} \\ 
         \mathscr{C} &= \left\{ B \subseteq X \, | \, 1 \notin X \vee 1 \in B \vee \rho(X - B) = 1 \right\} \\
-        \intertext{Pero, $ 1 \in X $, entonces} \\
+        \intertext{Pero, $ 1 \in X $, entonces}
         \mathscr{C} &= \left\{ B \subseteq X \, | \, 1 \in B \vee \rho(X - B) = 1 \right\} 
     \end{align*}
-
     Ahora, veamos que conjuntos satisfacen la propiedad de $ \rho(X-B) = 1 $
-
     \begin{align*}
-        \rho(X-B) &= \lim_{n \to \infty}{ \frac{\abs{(X-B) \cap [n]}}{n} } \\ 
-        \rho(X-B) &= \lim_{n \to \infty}{ \frac{\abs{ (X \cap [n]) - B }}{n} } \\
-        \rho(X-B) &= \lim_{n \to \infty}{ \frac{\abs{[n] - B }}{n} } \\
+        1 &= \lim_{n \to \infty}{ \frac{\abs{[n] - B}}{n} } \\ 
+        1 &= \lim_{n \to \infty}{ \frac{\abs{[n] - (B \cap [n])}}{n} } \\
+        \intertext{Como $B \cap [n] \subseteq [n]$, entonces}
+        1 &= \lim_{n \to \infty}{ \frac{\abs{[n]} - \abs{B \cap [n]}}{n} } \\
+        1 &= \cancelto{1}{\lim_{n \to \infty}{ \frac{\abs{[n]} }{n}}} - \lim_{n \to \infty}{ \frac{ \abs{B \cap [n] } }{n} } \\
+        \cancelc[red]{1} &= \cancelc[red]{1} - \lim_{n \to \infty}{ \frac{ \abs{B \cap [n] } }{n} } \\
+        0 &= \lim_{n \to \infty}{ \frac{ \abs{B \cap [n] } }{n} } \\
+        0 &= \rho(B)
     \end{align*}
-
-    Ahora, como se tiene que dar que $\rho(X-B) = 1$, $[n]$ tiene infinitos elementos, ya que $n \to \infty$ y sabemos que 
-    $$ \lim_{n \to \infty} \frac{n - c}{n} = 1 \, , \quad \forall c \in \Z $$
-
-    Entonces $B$ tiene que ser un conjunto finito. Por lo tanto, los cerrados de $X$ con la topología $\tau$ son los conjuntos finitos o los conjuntos que contienen al elemento $1$, es decir
-
-    $$ \mathscr{C} = \left\{ B \subseteq X \, | \, B \text{ es finito } \vee 1 \in B \right\} $$
-
+    Por lo tanto, los cerrados de $ X $ con la topología $ \tau $ son
+    $$ \mathscr{C} = \left\{ B \subseteq X \, | \, 1 \in B \vee \rho(B) = 0 \right\} $$
 }
 \end{document}
