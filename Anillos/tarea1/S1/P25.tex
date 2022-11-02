@@ -1,0 +1,33 @@
+\begin{proof}
+    \,
+    \begin{enumerate}
+        \item \, 
+        \begin{align*}
+            \alpha \overline{\alpha} &= (a+bi+cj+dk)(a-bi-cj-dk) \\
+            &= a^2 - abi - acj - adk + bai - b^2i^2 - bcij - bdik + caj \\
+            &\ \qquad \qquad - cbji - c^2j^2 - cdjk + dak - daki - dckj - d^2k^2 \\
+            &= a^2+b^2+c^2+d^2 \\ 
+            &= N(\alpha)
+        \end{align*}
+        \item \,
+        \begin{align*}
+            N(\alpha\beta) &= N((a+bi+cj+dk)(x+yi+zj+wk)) \\
+            &= N((ax-by-cz-dw) +(ay+bx+cw-dz)i + \\
+            &\ \qquad \qquad (az-bw + cx+dy)j +(aw+bz-cy+dx)k) \\
+            &= (ax-by-cz-dw)^2 + (ay+bx+cw-dz)^2 + \\
+            &\ \qquad \qquad (az-bw+cx+dy)^2  +(aw+bz-cy+dx)^2\\ 
+            &= (a^2 + b^2 + c^2 + d^2)(x^2 + y^2 + z^2 + w^2)\\ 
+            &= N(\alpha)N(\beta)
+        \end{align*}
+        
+        \item Supongamos que $\alpha$ es una unidad, entonces $\alpha\beta = 1$ para algún $\beta$ en el anillo  de cuaterniones de Hamilton. Note que por la definición de $N$ como una suma de cuadrados, entonces $N(\alpha) \geq 0$ para todo $\alpha \in I$. Ahora
+        $$ 1 = N(1) = N(\alpha\beta) = N(\alpha)N(\beta) $$
+        y $N(\alpha)$ y $N(\beta)$ son ambos enteros, por lo tanto $N(\alpha) = 1$. Ahora, supongamos que $N(\alpha) = 1$. Entonces
+        $$ \alpha \ol{\alpha} = N(\alpha) = 1$$
+        Y claramente $\ol{\alpha} \in I$, así que $\alpha$ es una unidad en $I$.
+
+        Supongamos que $\alpha \in I$ es una unidad, entonces
+        $$ N(\alpha) = a^2 + b^2 + c^2 + d^3 = 1$$
+        si alguno de $a, b, c, d$ es mayor que 2 en valor absoluto, tenemos una contradicción, así que cada uno de $a, b, c, d$ es menor que 2 en valor absoluto. Por lo tanto son $1, 0$ o  $-1$, Si más de uno es mayor que 1 en valor absoluto, tenemos otra contradicción; por lo tanto, a lo mucho uno de ellos puede set $1$, si todos son cero, entonces $\alpha = 0$, por lo que no es una unidad, así que exactamente uno de ellos es 1, entonces $N(\alpha) = 1$, así que $\alpha$ es una unidad. Por lo tanto $\abs{I^*} = 8$, ya que $I^*$ es no abeliano y tiene seis elementos de orden 4, $I^* \cong Q_8$.
+    \end{enumerate}
+\end{proof}

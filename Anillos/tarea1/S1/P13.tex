@@ -1,0 +1,24 @@
+\begin{problem}[13]
+\end{problem}
+
+
+\begin{proof} \,
+    \begin{enumerate}
+        \item Sea $n = a^k b$ para algunos $a$ y $b$.
+        Entonces $$ (ab)^k = a^k b^k = (a^k b) b^{k-1} = n b^{k-1} \equiv 0 \mod{n} $$
+        
+        \item Supongamos que $ \ol{a} \in \ZnZ $ es nilpotente. Entonces $ \ol{a}^k = \ol{0} $ para algún $ k \in \Z^+ $. Entonces $a^k \equiv 0 \mod{n}$, así $n | a^k$. Ahora, si $p$ es un primo divisor de $n$, entonces $p | a^k$ y por lo tanto $p | a$.
+        
+        Ahora, cada primo divisor de $n$ es un divisor de  $a$. Sea $ n = {p_1}^{\alpha_1} \cdots {p_k}^{\alpha_k} $ y $ a = {p_1}^{\beta_1} \cdots {p_k}^{\beta_k} m$ donde $1 \leq \alpha_i, \beta_i$ para todo $i$ y para algún entero $m$. Sea $s = \max{\alpha_i}$. Entonces
+        $$ a^s = \left( {p_1}^{\beta_1} \cdots {p_k}^{\beta_k} m \right)^s = {p_1}^{\beta_1 s} \cdots {p_k}^{\beta_k s} m^s$$
+        donde $\beta_i s \geq \alpha i$, por lo que
+        $$ a^s = n {p_1}^{\beta_1 s - \alpha_1} \cdot {p_k}^{\beta_k s - \alpha_k} m$$
+        y por tanto $ a \equiv 0 \mod{n} $
+        
+        $ 72 = 2^3 3 ^2 $, entonces los elementos nilpotentes de $ \Z / 72\Z $ son  $\{ 0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66 \}$.
+        
+        \item Supongamos que $ \alpha \in R $ es nilpotente. Si $\alpha \neq 0$, entonces existe $ x \in X $ tal que $ \alpha(x) \neq 0 $. Sea $m$ el menor entero positivo tal que $ \alpha(x)^m = 0 $; note que $ m \geq 1 $. Entonces $ \alpha(x) {\alpha(x)}^{m-1} $, donde $ \alpha(x) $ y $ {\alpha(x)}^{m-1} $ no son cero. Por lo que $F$ contiene divisores de cero, lo cual es una contradicción. Por lo que $R$ no contiene elementos nilpotentes diferentes de cero
+    \end{enumerate}
+\end{proof}
+
+

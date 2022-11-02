@@ -1,0 +1,16 @@
+\begin{problem}[7]
+\end{problem}
+
+\begin{proof}
+    Primero, probemos el siguiente lema\\
+    \textit{\textbf{Lema:}} $E_{p,q}E_{s,t} = E_{p,t}$ si $q=s$ y cero en otros casos.\\
+    \textit{\textbf{Demostración:}} si $q=s$, entonces la $p$-esima fila de $E_{p,q}E_{s,t}$ es la $s$-esima fila de $E_{s,t}$ y todas las otras entradas son 0.
+
+    Por lo que $E_{p,q}E_{s,t} = E_{p,t}$. Si $q\neq s$, entonces la $p$-esima fila de $E_{p,q}E_{s,t}$ es la $q$-esima fila de $E_{s,t}$ las cuales son todas cero, y todas las otras entradas cero, por lo que $E_{p,q}E_{s,t} = 0$.
+
+    Ahora, supongamos que $B = [b_{i,j}] \in Z(M_n(R))$. note que la entrada $(p,t)$ de $E_{p,q}BE_{s,t} = E_{p,q}E_{s,t}Bisb_{q,s}$
+    
+    Por el lema, si $q \neq s$, entonces $b_{q,s} = 0$. Por lo que $B$ es una matriz diagonal. Ahora, so $q=s$, entonces la entrada $(p,t)$ de $E_{p,t}B$ es $b_{q,q}$ por un lado y $b_{t,t}$ en el otro, ya que la $p$-esima fila de $E_{p,t}B$ es la $t$-esima fila de $B$. Por lo que $b_{q,q}=b_{t,t}$ para toda elección de $q$ y $t$. por lo que $B=bI$ para algún $b\in R$, y tenemos que $Z(M_n(R)) \subseteq \{ rI \ |\ r \in R \}$
+
+    Por el contrario, $(rI)A = rA = Ar = A(rI)$. por lo que $Z(M_n(R)) = \{ rI \ |\ r \in R \}$
+\end{proof}

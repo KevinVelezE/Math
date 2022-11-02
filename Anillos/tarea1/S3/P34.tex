@@ -1,0 +1,34 @@
+\begin{problem}[34]
+\end{problem}
+
+\begin{proof} \, 
+    \begin{enumerate}
+        \item[a)] Primero, veamos que $I+J$ es un ideal de $R$. Sea $a_1 + b_1, a_2 + b_2 \in I + J$ para algunos $a_i \in I$ y $b_i \in J$. Entonces
+        $$ (a_1+b_1)-(a_2+b_2) = (a_1-a_2) + (b_1-b_2) \in I +J $$
+        ya que $I$ y $J$ son cerrados bajo la sustracción. Ahora, sea $r \in R$. Tenemos que 
+        $$ r(a+b) = ra + rb \in I + J$$
+        ya que $I$ y $J$ absorben de $R$ por la derecha, y de manera similar $(a+b)r \in I+J$. Por lo tanto, $I+J$ es un ideal de $R$.
+
+        Ahora, vamos a mostrar que $I+J$ es el más pequeño que contiene a $I$ y a $J$. Supongamos que $K$ es un ideal de $R$ con $I,J \subseteq K$. Si $a+b \in I+J$, entonces como $K$ es cerrado bajo la adición, tenemos que $a+b \in K$, por lo que $I+J \subseteq K$.
+
+        \item[b)] Primero, sea $\alpha, \beta \in IJ$, con $\alpha = \sum a_i b_i$ y $\beta = \sum c_i d_i$. donde $a_i, c_i \in I$ y $b_i, d_i \in J$. Claramente $\alpha\beta \in IJ$. Ahora, sea $r \in R$. como $I$ es un ideal de R,
+        $$ r\alpha = \sum (r a_i) b_i \in IJ$$
+        Similarmente, $\alpha r \in IJ$. Por lo tanto, $IJ$ es un ideal de $R$.
+
+        Ahora, consideremos de nuevo $\alpha = \sum a_i b_i$, como $a_i \in I$ e $I$ es un ideal, $a_i b_i \in I$, y por tanto, $\alpha \in I$, de mismo modo, $\alpha \in J$. Por lo tanto, $IJ \subseteq I \cap J$.
+
+        \item[c)] Sea $R = \Z$, $I = 2\Z$ y $J = 4\Z$. Evidentemente
+        $$ (2\Z)(4\Z) = 8\Z$$
+        mientra que
+        $$ 2\Z \cap 4\Z = 4\Z$$
+        Por lo que no es generalmente cierto que $IJ = I \cap J$.
+
+        \item[d)] Supongamos que $I+J = R$ y que $R$ es conmutativo, sabemos que $IJ \subseteq I \cap J$.
+        
+        Notemos que 
+        $$ (I \cap J)(I+J) = (I \cap J)R = I \cap J $$
+        Por lo que, si $z \in I \cap J$, entonces $z = w(x+y)$ para algún $x \in I$ y $y \in J$. y $w \in I \cap J$. Entonces
+        $$ z = xw + wy \in IJ $$
+        Por lo tanto, $IJ = I \cap J$.
+    \end{enumerate}
+\end{proof}

@@ -1,0 +1,29 @@
+\begin{problem}[2]
+\end{problem}
+
+\begin{proof}
+    Si $b p(x) = 9$ para algún $0\neq b \in R$, entonces es claro que $p(x)$ es un divisor de cero.
+
+    Ahora, supongamos que $p(x)$ es un divisor de cero, esto eso, para algún $q(x) = \sum_{i=0}^{m} b_i x^i$, tenemos que $p(x)q(x)=0$. Podemos elegir el $q(x)$  que tenga grado mínimo que cumpla esta propiedad.
+
+    Vamos a mostrar ahora, por inducción que $a_iq(x) = 0$ para todo $0 \leq i \leq n$
+
+    Para el caso base, note que
+    $$ p(x)q(x) = \sum_{k=0}^{n+m} \left(\sum_{i+j = k} a_ib_j\right) x^k = 0 $$
+    
+    El coeficiente de $x^{n+m}$ en este producto es $a_nb_m$ por un lado, y $0$ por el otro, por lo que $a_nb_m = 0$.
+
+    Ahora, $a_nq(x)p(x) = 0$, y el coeficiente de $x^m$ en $q$ es $a_nb_m=0$. Por lo que el grado de $a_nq(x)$ es estrictamente menor que el grado de $q(x)$; ya que el grado de $q(x)$ es el de grado mínimo entre los polinomio no cero que multiplicados con $p(x)$ dan cero. es un hecho que $a_nq(x) = 0$. Más específicamente, $a_nb_i = 0$ para todo $0 \leq i \leq m$.
+
+    Para el paso inductivo, supongamos que para algún $0 \leq t \leq n$, tenemos que $a_rq(x) == 0$ para todo $t \leq r \leq n$. Ahora
+    $$ p(x)q(x) = \sum_{k=0}^{n+m} \left( \sum_{i+j=k} a_ib_j\right) x^k = 0 $$
+    
+    Por un lado, el coeficiente de $x^{m+t}$ es $\sum_{i+j=m+t}a_ib_j$, y por el otro lado, es $0$, por lo que 
+    $$ \sum_{i+j=m+t} a_ib_j = 0$$
+
+    Por la hipótesis de inducción, si $i \geq t$, entonces $a_ib_j = 0$, por lo que todos los términos tal que $i \geq t$ son cero. Si $i<t$, entonces tenemos que $j>m$, una contradicción. Por lo que $a_ib_m = 0$. Como en el caso base, 
+    $$ a_tq(x)p(x) = 0$$
+    y $a_tq(x)$ tiene grado estrictamente menor que el grado de $q(x)$, Así que, por la minimalidad, $a_tq(t)=0$.
+
+    Por inducción, $a_iq(x) = 0$ para todo $0 \leq i \leq n$. En particular, $a_ib_m =0$. Por lo que $b_mp(x) = 0$
+\end{proof}
