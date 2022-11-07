@@ -1,6 +1,6 @@
 \documentclass{amsart}
 \input{../../preambles/homework}
-
+\usepackage{todonotes}
 \title{Tarea 2 - Topología general}
 \author{Juan Pablo Lopez, Sebastian Ramirez, Kevin Velez}
 \date{Noviembre 2022}
@@ -39,5 +39,81 @@
     \end{align*}
     Por lo tanto, los cerrados de $ X $ con la topología $ \tau $ son
     $$ \mathscr{C} = \left\{ B \subseteq X \, | \, 1 \in B \vee \rho(B) = 0 \right\} $$
+}
+
+\newpage
+\qs{Ejercicio 4.b)}{
+    Sean $m \in \R$ y $B \subseteq \R$. Sean 
+    $$ L_B = \left\{ (x,y) \in \R^2 \, | \, y = mx + b \mbox{ para algun $b \in B$} \right\} $$
+    y
+    $$ \tau \left\{ L_B \, | \, B \subseteq \R \right\} $$
+
+    Demuestre que $ B = L_{ \{ b \}} $ con $ b \in \R$ es un base para $\tau$.
+}
+\dem{
+    Teniendo en cuenta que $ \tau $ es una topología sobre $ \R^2 $, entonces veamos que se cumple la primera condición
+    
+    $$ \forall \, (x,y) \in \R^2 \, \exists \, L_{\{b\}} \in B \, | \,  (x,y) \in L_{\{b\}} \subseteq \R^2 $$
+
+    sea $ m \in \R $ y $ (x,y) \in \R^2 $, luego esta condición se cumple para $ b = y - mx $
+
+    Asi $ (x,y) \in L_{\{y-mx\}} \in B \subseteq \R^2 $ , ya que se cumple la definición  de $L_{\{b\}}$
+    
+    $$ L_{b} = \left\{ (x,y) \in \R^2 \, | \, y = mx + b \mbox{ para algun $b \in B$} \right\} $$
+
+    Como $ m,y,x \in \R $ y $ \R $ es cerrado para la suma (resta) y multiplicación, entonces  $ b = y - mx $ pertenece a $\R$ y por ende, para todo $ (x,y) \in \R^2 $  existe un básico que lo contiene.
+
+    Ahora veamos que para todo abierto de la topología $ \tau $ existe una colección de básicos el cual se puede expresar como la union de estos.
+
+    Sea $ L_B \in \tau $ con $ B \subseteq \R $, entonces veamos que
+
+    $$ L_{B} = \bigcup_{b \in B} L_{b} $$
+
+    Sea $ m \in \R $ , tomando $m$ como una pendiente fija, los elementos de $ L_{B} $ son de la forma $ (x,y) = (x, mx + b) $ para algún $ b \in B $, es decir, rectas paralelas con diferentes intersecciones con el eje $y$ como se ilustra en la siguiente figura
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw[-{Stealth}] (-0.2,0) -- (3,0) node[right] {$x$};
+            \draw[-{Stealth}] (0,-0.2) -- (0,3) node[above] {$y$};
+            \clip (-0.4,-0.4) rectangle (3.2,3.2);
+            \foreach \x/\n in {0/0, 0.75/1, 1.5/2, 2.25/3}
+                \draw[blue] (-1.2,{0.25*(-1) + \x}) -- (3.2,{0.25*(4) + \x}) node[below, black] {\Tiny$l_{\n}\quad$};
+            \foreach \x/\n in {0/0, 0.75/1, 1.5/2, 2.25/3}
+                \node[rotate=15, blue!70] at (0.75,\x+0.5) {\Tiny$y=mx+b_{\n}$};
+        \end{tikzpicture}
+    \end{figure}
+
+    Ahora si tomamos $ l_\alpha \in L_{B} $
+
+    $$ l_{\alpha} = \left\{ (x,y) \in \R^2 \, | \, y = mx + \alpha \right\} $$
+
+    luego, existe $ \alpha \in B $ tal que $(x,y) \in L_{\{\alpha\}} \subseteq \bigcup\limits_{b \in B} L_{\{b\}} $
+
+    Asi $ L_{B} \subseteq \bigcup\limits_{b\in B} l_{\{b\}} $
+
+    Ahora observemos la otra inclusion. Sea $ (x,y) \in \bigcup\limits_{b\in B} L_{ \{b\} } $ entonces existe $ j \in B $ tal que $ (x,y) \in L_{\{j\}} $ y se cumple $ y = mx + j $ con $j \in B \subseteq \R $. Pero esta es precisamente la definición de $ L_{B} $ ya que $ L_{B} = \left\{ (x,y) \in \R^2 \, | \, y = mx + b \mbox{ para algún $ b \in B $ } \right\} $
+
+    Asi
+    $$ \bigcup_{ b \in B} L_{\{b\}} \subseteq L_{B} $$
+    y por lo tanto $ L_{B} = \bigcup\limits_{b \in B} L_{\{b\}} $
+
+    Asi queda demostrado que todo abierto en la topología $ \tau $ se puede generar mediante la unión de una colección de básicos $ L_{\{b\}} \in B $ 
+
+    Por ultimo se demuestra la condición si $ (x,y) \in L_{\{b_{1}\}} $ y $ (x,y) \in L_{\{b_{2}\}} $ entonces existe un básico $ L_{\{b_{3}\}} $ tal que $ (x,y) \in L_{\{b_{3}\}} \subseteq L_{\{b_{1}\}} \cap L_{\{b_{2}\}} $
+
+    Pero esto solo sucede si
+    $$  L_{\{b_1\}} = L_{\{b_2\}} \Longleftrightarrow b_1 = b_2$$
+    ya que son rectas paralelas, de otro modo, su intersección sería vacío, el cual también es un abierto de la topología $ \tau $.
+}
+
+\qs{Ejercicio 11.b)}{
+    Siendo $X=[0,1]\times [0,1]$, con la topologia del orden lexicografico hallar la clausura de $B=\{(1-\frac{1}{n},\frac{1}{2}:\ n\in \Z^{+} \}$.
+}
+\dem{
+    Como X tiene elemento maximo $(1,1)$ y minimo $(0,0)$, una base para la topologia son los intervalos cerrados a ambos lados. Por el teorema 17.6 en Munkres se tiene $\overline{B}=B\cup B'$, donde B' son los puntos de acumulación de B. Vamos a probar que $B'=\emptyset$, para ello tomemos un elemento $(a,b)$ con $0<a\leq 1$ y veamos que no puede ser un punto de acumulación de B. Supongamos que $a\neq \frac{1}{n}$ para todo $n\in \Z^+$, por propiedad Arquimediana existe un natural n tal que $\frac{1}{n+1}<a<\frac{1}{n}$ (es posible ya que $a>0$) y con ello vemos que el intervalo $[(a-\delta,b),(a+\delta,b)]$ con $\delta=\frac{1}{2} \min \{|a-\frac{1}{n+1}|,|a-\frac{1}{n}| \}$ es abierto y contiene a $(a,b)$ pero no intercepta a $B-\{(a,b)\}=B$ debido a su misma construcción, es decir, $(a,b)$ no es un punto de acumulación. Por otro lado, si $a=\frac{1}{n}$ para algún natural n, ahora tomamos   el intervalo $[(a,0),(a,1)]$ si $b=\frac{1}{2}$  ya que solo contiene elementos de la forma $(\frac{1}{n},x)$ con $x\in [0,1]$ con un n fijo y por lo tanto no intercepta a $B-\{(a,b)\}$. Si $b\neq \frac{1}{2}$ podemos asumir sin perdida de generalidad que $b<\frac{1}{2}$ y hacer $\delta=\frac{1}{2}(\frac{1}{2}-b)$, tendría que el intervalo $[(a,b),(a,b+\delta)]$ contiene a $(a,b)$ pero no contiene a ningún elemento de B ya que los elementos de B tienen segunda coordenada igual a $\frac{1}{2}$.
+
+    Ahora veamos que pasa con $a=0$, vemos que el intervalo $[(0,0),(0,1)]$ contiene a $(a,b)$ pero no tienen a ningún elemento de B ya que son mayores a $(0,x)$ con $x\in [0,1]$.\\
+    Finalmente, se concluye que B no tiene puntos limite y por lo tanto $\overline{B}=B\cup B'=B$ , es decir , B es cerrado.
 }
 \end{document}
