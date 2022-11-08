@@ -1,0 +1,155 @@
+\documentclass{amsart}
+\input{../../preambles/homework.tex}
+
+\title{TAREA 3}
+% \author{Kevin Velez}
+\date{Octubre 2022}
+\fancyhead[R]{\footnotesize SEMINARIO DE HISTORIA DE LA MATEMÁTICA}
+
+% rosa1 #e13c6c
+\definecolor{rs1}{rgb}{0.88,0.23,0.42}
+% rosa2 #eb657f
+% \definecolor{rs2}{rgb}{0.92,0.39,0.50}
+% azul1 #062149
+%\definecolor{az1}{rgb}{0.36,0.10,0.30}
+\definecolor{az1}{rgb}{0.9,0,0}
+% \definecolor{az1}{rgb}{0.02,0.13,0.29}
+% azul2 #5f77a6
+\definecolor{az2}{rgb}{0.37,0.47,0.65}
+% azul3 #91a0c6
+\definecolor{az3}{rgb}{0.57,0.63,0.78}
+% % morado1 #5c1a4d
+% \definecolor{mr1}{rgb}{0.36,0.10,0.30}
+% verde #16825D
+\definecolor{mr1}{rgb}{0.09,0.51,0.36}
+% naranja #FF9800
+\definecolor{rs2}{rgb}{1.00,0.60,0.00}
+
+
+\begin{document}
+\maketitle \thispagestyle{fancy}
+
+\newcommand{\pabt}{\textcolor{rs1}{ABT}}
+
+\newcommand{\kt}{\textcolor{az2}{KT}}
+\newcommand{\kb}{\textcolor{az2}{KB}}
+\newcommand{\bt}{\textcolor{az2}{BT}}
+
+\newcommand{\az}{\textcolor{az1}{AZ}}
+\newcommand{\ak}{\textcolor{az1}{AK}}
+\newcommand{\kz}{\textcolor{az1}{KZ}}
+
+\newcommand{\tz}{\textcolor{az1}{TZ}}
+\newcommand{\te}{\textcolor{az1}{TE}}
+\newcommand{\ez}{\textcolor{az1}{EZ}}
+
+\newcommand{\de}{\textcolor{mr1}{DE}}
+\newcommand{\db}{\textcolor{mr1}{DB}}
+\newcommand{\be}{\textcolor{mr1}{BE}}
+
+\newcommand{\fm}{\textcolor{rs2}{FM}}
+\newcommand{\fo}{\textcolor{rs2}{FO}}
+\newcommand{\om}{\textcolor{rs2}{OM}}
+
+\qs{La cuadratura de la parábola por medios mecánicos.}{
+    Sea \textcolor{rs1}{$ABT$} el segmento de la parábola limitado por la recta $AT$ y la parábola \textcolor{rs1}{$ABT$}, $D$ el punto medio de $AT$, $B$ el vértice de la parábola, la recta \textcolor{mr1}{$DB$} es el eje de la parábola. $\tz$ es tangente a la parábola en $T$ y $\az$ es perpendicular a $AT$, Sea $F$ un punto en $AT$, se traza $\fm$ perpendicular a $AT$. Demostrar que $B$ es el punto medio de $\kt$ y de $\de$, y demostrar que $\frac{AT}{AF} = \frac{\fm}{\fo}$
+}
+
+\dem{
+    De manera análitica, podemos la parábola en el plano, tomando el eje $x$ como la recta $AT$ y el eje $y$ como la recta $\db$, la parábola está descrita entonces por la función $\textcolor{rs1}{y=-ax^2+b}$, con $a,b > 0$, por lo que $\db = b$. De está manera, el corte con el eje $x$ se dan en $\left\{ -\sqrt{\frac{b}{a}}, \sqrt{\frac{b}{a}} \right\}$.
+    \begin{figure}[H]
+        \centering
+        \renewcommand{\a}{0.25}
+        \renewcommand{\b}{1}
+        \newcommand{\sqab}{(\b/\a)^(1/2)}
+
+        \begin{tikzpicture}[scale=1.5]
+            \coordinate (A) at ({-\sqab},0);
+            \coordinate (T) at ({\sqab},0);
+            \coordinate (Z) at ({-\sqab},4*\b);
+            \coordinate (E) at (0, 2*\b);
+            \coordinate (B) at (0,\b);
+            \coordinate (K) at ({-\sqab},2*\b);
+            \coordinate (D) at (0,0);
+            \coordinate (F) at ({-\sqab/2},0);
+            \coordinate (O) at ({-\sqab/2},{-\a*(\sqab)*(\sqab)/4 + \b});
+            \coordinate (M) at ({-\sqab/2},{-((2*\b)/(\sqab))*(-\sqab/2 - \sqab)});
+
+            \draw[{Stealth}-{Stealth}, gray, dashed] ({-\sqab - 1},0) -- ({\sqab + 1},0);
+            \draw[-{Stealth}, gray, dashed] (0,0) -- (0,4*\b + 0.5);
+            \node[gray, above] at (0,4*\b + 0.5) {$y$};
+            \node[gray, right] at ({\sqab + 1},0) {$x$};
+
+            \draw[very thick, domain=-2:2, rs1] plot (\x, -\a*\x*\x + \b);
+            \draw[very thick] (A) -- (T);
+            \draw[very thick, az1] (A) -- (Z) -- (T);
+            \draw[very thick, az2] (T) -- (K);
+            \draw[very thick, mr1] (D) -- (E);
+            \draw[very thick, rs2] (F) -- (M);
+            \draw[very thick, dashed] (A) -- (B);
+            
+            
+            % points
+            \begin{scope}[fill=black,opacity=0.5]
+                \fill (A) circle (1pt) node[below left] {$A$};
+                \fill (T) circle (1pt) node[below right] {$T$};
+                \fill (Z) circle (1pt) node[above left] {$Z$};
+                \fill (E) circle (1pt) node[above right] {$E$};
+                \fill (B) circle (1pt) node[above right] {$B$};
+                \fill (K) circle (1pt) node[left] {$K$};
+                \fill (D) circle (1pt) node[below] {$D$};
+                \fill (F) circle (1pt) node[below] {$F$};
+                \fill (O) circle (1pt) node[above left] {$O$};
+                \fill (M) circle (1pt) node[below left] {$M$};
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+    Como $\tz$ es tangente a la parábola en el punto $T = \sqrt{\frac{b}{a}}$, entonces, derivando y evaluando en el punto, obtenemos la pendiente de la recta $\tz$.
+    \begin{align*}
+        \frac{d}{dx}(-ax^2 + b)\Big|_{_{x=\sqrt{\frac{b}{a}}}} = -2 a x \Big|_{_{x=\sqrt{\frac{b}{a}}}} = -2 a \sqrt{\frac{b}{a}} = -2 \sqrt{ab}
+    \end{align*}
+    por lo que la ecuación de la recta $\tz$ es
+    $$ \textcolor{az1}{y = -2\sqrt{ab} \cdot x + 2b} $$
+
+    Por lo qué, el punto $E$, se encuentra al remplazar $0$ en la ecuación de la recta $\tz$. dando como resultado $ E = (0, 2b) $, aquí queda evidente entonces que $B$ es el punto medio de $\de$, pues $\db=b$ y $\de=2b$.
+
+    Ahora, hallamos la recta $\kt$ que pasa por $T$ y $B$, primero la pendiente
+    $$ m = -\frac{b}{\sqrt{\frac{b}{a}}} = -b\sqrt{\frac{a}{b}} = -\sqrt{ab} $$
+    Entonces, la ecuación de la recta $\kt$ es
+    $$ \textcolor{az2}{y = -\sqrt{ab}\cdot x + b } $$
+
+    Por lo tanto, la coordenada $y$ del punto $K$ se encuentra al remplazar $x$ en la ecuación de la recta $\kt$, dando como resultado $ K = (-\sqrt{\frac{b}{a}}, 2b) $.
+
+    Verifiquemos entonces que la distancia de $K$ a $B$ es igual a la distancia de $B$ a $T$.
+
+    \begin{align*}
+        d(K,B) &= \sqrt{ \left(-\sqrt{\frac{b}{a}} - 0\right)^2 + \left( 2b - b \right)^2 } & 
+        d(B,T) &= \sqrt{ \left(0 - \sqrt{\frac{b}{a}}\right)^2 + \left( b - 0 \right)^2 }  \\
+        d(K,B) &= \sqrt{ \left(\sqrt{\frac{b}{a}} \right)^2 +  b^2 } &
+        d(B,T) &= \sqrt{ \left(\sqrt{\frac{b}{a}} \right)^2 + b^2 } \\ 
+    \end{align*}
+    Por lo tanto, $d(K,B) = d(B,T)$, es decir, $B$ es el punto medio de $\kt$.
+
+
+    Ahora, veamos que si $F$ tiene coordenadas $(x,0)$, entonces $O$ tiene coordenadas $(x, -ax^2+b)$ y $M$ tiene coordenadas $(x, -2\sqrt{ab}x + 2b)$, entonces veamos la razón $\frac{\fm}{\fo}$
+    $$ \frac{\fm}{\fo} = \frac{-2\sqrt{ab}+2b}{-ax^2 + b } $$
+    Y veamos la razón $\frac{AT}{AF}$
+    $$ \frac{AT}{AF} = \frac{ 2 \sqrt{\frac{b}{a}} }{x + 2 \sqrt{\frac{b}{a}}} $$
+    Y sabemos que $\frac{\fm}{\fo} = \frac{AT}{AF}$ si y solo si $\fm \cdot AF = \fo \cdot AT$, verifiquemos entonces
+
+    \begin{align*}
+        \fm \cdot AF &= \left(-2\sqrt{ab}x+2b\right)\left( x + \sqrt{\frac{b}{a}} \right) &
+        \fo \cdot AT &= \left(-ax^2 + b\right)\left( 2 \sqrt{\frac{b}{a}} \right) \\
+        \fm \cdot AF &= -2\sqrt{ab}x^2 - \cancelc[red]{2bx} + \cancelc[red]{2bx} + 2b \sqrt{\frac{b}{a}} &
+        \fo \cdot AT &= -2\sqrt{ab}x^2 + 2b\sqrt{\frac{b}{a}} \\
+        \fm \cdot AF &= -2\sqrt{ab}x^2 + 2b \sqrt{\frac{b}{a}} & \\
+    \end{align*}
+
+    Como podemos ver, efectivamente $\fm \cdot AF = \fo \cdot AT$, por lo que se tiene que $\frac{\fm}{\fo} = \frac{AT}{AF}$
+
+    Por último, veamos que los triángulos $\triangle ABT$ y $\triangle AZT$, comparten la misma base, la altura del triángulo $\triangle ABT$ es el segmento $\db$, por lo que su altura es $b$, y la altura del triángulo $\triangle AZT$ es el segmento $\az$, por lo que su altura $4b$, de este modo, el área del triángulo $\triangle ABT$ es $\frac{1}{2} \cdot AT \cdot b$ y la medida del triángulo $\triangle AZT$ es $\frac{1}{2} \cdot  AT \cdot 4b $, y por tanto, el triángulo $\triangle AZT$ es cuatro veces mayor en área (medida) que el triángulo $\triangle ABT$, es decir
+    $$ \triangle AZT = 4 \triangle ABT $$
+}---
+
+\end{document}
