@@ -1,0 +1,17 @@
+\begin{problem}[6]
+\end{problem}
+
+\begin{proof} \,
+    \begin{enumerate}
+        \item[a)] Si $ a \equiv b \mod{2}$, entonces
+        $$ a + bi = \left( \frac{a+b}{2} + \frac{b-a}{2}i \right)(1+i) \in (1+i) $$
+        Por lo que $ \ol{a+bi} = \ol{0} $. Si $ a \not\equiv b \mod{2}$, entonces $a+1 \equiv b \mod{2}$, por lo que $ \ol{a+1 + bi} = \ol{a+bi} + \ol{1} = \ol{0} + \ol{1} = \ol{1}  $. Estos son los únicos dos casos posibles, así que $(1+i) = \left\{\ol{0}, \ol{1} \right\}$, como es un dominio con dos elementos, entonces es un cuerpo.
+
+        \item[b)] Primero veamos la cantidad de elementos de $ \Z[i]/(q) $, Sea $a + bi \in \Z[i]$, entonces $\ol{a+bi} = \ol{a} + \ol{b} \cdot \ol{i}$, por lo que, tanto $\ol{a}$ como $\ol{b}$ tienen $q$ posibles valores para tomar, así, la cantidad de elementos de $ \Z[i]/(q) $ es $q\cdot q = q^2$.
+        
+        Por otro lado, como $q \equiv 3 \mod{4}$, entonces $q$ es irreducible en $\Z[i]$, como $Z[i]$ es dominio de ideales principales, entonces $q$ es primo y por tanto $(q)$ es un ideal maximal, lo cual implica que $\Z[i]/(q)$ es cuerpo.
+
+        \item[c)]
+    \end{enumerate}
+
+\end{proof}

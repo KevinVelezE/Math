@@ -1,0 +1,21 @@
+\begin{problem}[5] \, 
+    \newcommand{\sqc}{\sqrt{-5}}
+    \begin{enumerate}
+        \item[a)] %TODO: 
+        \item[b)] Veamos que ${I_2}^2$ es un ideal principal, de hecho, ${I_2}^2 = (2) $
+        
+        $ {I_2}^2 = (2, 1 + \sqc) (2, 1 + \sqc) = (4, 2 + 2 \sqc, 2 + 2 \sqc, -4 + 2 \sqc ) = (4, 2 + 2\sqc, -4 + 2 \sqc) $
+
+        Claramente $ {I_2}^2 \leq (2)$, y además $ 2 = -(1+ \sqc)(1+\sqc) - 2(1+\sqc)$, por lo qué $2 \in {I_2}^2$, así que $ {I_2}^2 = (2)$.
+
+        \item[c)] tenemos que $I_2 I_3 = (2, 1 + \sqc)(3, 2 + \sqc) = (6, 4 + 2\sqc, 3 + 3\sqc, -3 + 3 \sqc) $, además 
+        
+        $ 6 = (1 - \sqc)(1 + \sqc)$, $4 + 2 \sqc = (1 - \sqc)(-1 + \sqc)$, $3 + 3\sqc = (1-\sqc)(-2 + \sqc)$, y $-3 + 3\sqc = (1-\sqc)(-3)$. Por lo tanto, $I_2I_3 \leq (1 - \sqc)$. Además, $1 - \sqc = 4+ 2\sqc - (3 + 3\sqc)$. Por lo que $I_2I_3 = (1 - \sqc)$
+
+        Ahora, tenemos que $I_2 I_3' = (2, 1 + \sqc)(3, 2 - \sqc) = (6, 4 - 2\sqc, 3 + 3\sqc, 7 + \sqc) $, además 
+        
+        $ 6 = (1 - \sqc)(1 + \sqc)$, $4 - 2 \sqc = (1 + \sqc)(-1 - \sqc)$, $3 + 3\sqc = (1+\sqc)(3)$, y $7 + \sqc = (1+\sqc)(2-\sqc)$. Por lo tanto, $I_2I_3 \leq (1 + \sqc)$. Además, $1 + \sqc = (7+\sqc) - 6$. Por lo que $I_2I_3' = (1 + \sqc)$
+
+        Finalmente $$ {I_2}^2I_3I_3' = I_2 I_3 I_2 I_3 = (1-\sqc)(1+\sqc) = (6)$$
+    \end{enumerate}
+\end{problem}

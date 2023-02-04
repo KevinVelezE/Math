@@ -1,0 +1,14 @@
+\begin{problem}[7]
+\end{problem}
+
+\begin{proof}
+    \item[a)] Supongamos que $R$ es un dominio de Bezout. Sean $a,b \in R$, entonces $(a,b) = (d)$ para algún $ d \in R $, entonces $d$ es un máximo común divisor de $a$ y $b$, por lo que $d = ax + by$ para algún $x,y \in R$.
+    
+    Ahora, supongamos cada par de elementos $a,b \in R$ tienen un máximo común divisor $d$ tal que $d$ se puede escribir como una combinación lineal de $a$ y $b$. Consideremos entonces el ideal $(a,b)$, claramente $d \in (a,b)$, por lo que $ (d) \subseteq (a,b) $. Ahora, sea $z \in (a,b)$, entonces $z = at + bs$, para algún $t,s \in R$, como $d \div a$ y $d \div b$, entonces $a = a'd$ y $b = b'd$, por lo tanto $z = a'dt + b'ds = d(a't + b's)$, por lo que $z \in (d)$, Lo cual implica que $(a,b) = (d)$ y esto para todo par de elementos $a,b \in R$, por lo que $R$ es un dominio de Bezout.
+
+    \item[b)] Supongamos que $R$ es un dominio de Bezout, vamos a demostrar por inducción en el número de elementos generadores que cualquier ideal finitamente generado es un ideal principal, para $n=1$ es trivial, para $n=2$ es la propiedad de ser dominio de Bezout.
+    
+    supongamos que $(a_1, \ldots, a_{n-1}) = (a)$, vamos a probar que $(a_1, \ldots, a_n) = (b)$. Veamos, sabemos que $(a_1, \ldots, a_n) = (a_1, \ldots, a_{n-1}) + (a_n) = (a) + (a_n) = (a, a_n) = (b) $
+
+    \item[c)] Sea $F$ el cuerpo de fracciones de un dominio de Bezout, sea $\alpha \in F$, entonces $\alpha = \frac{a}{b}$ para algún $a, b \in R$, como $R$ es de Bezout, entonces $\gcd(a,b) = d$ para algún $d \in R$, por lo que $a = da'$ y $b = db'$, por lo tanto $\alpha = \frac{da'}{db'} = \frac{a'}{b'}$, además, como $\gcd(a,b) = d$, entonces existen $x,y \in R$ tal que $d = ax + by = da'x + db'y$, por lo que $1 = a'x + b'y$, por lo tanto $\gcd(a',b') = 1$. 
+\end{proof}

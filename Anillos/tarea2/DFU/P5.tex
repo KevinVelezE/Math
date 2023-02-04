@@ -1,0 +1,52 @@
+\begin{problem}[5]
+\end{problem}
+
+\begin{proof} \,
+    \begin{enumerate}
+        \item[a)] \,
+        \begin{itemize}
+            \item Supongamos que 2 es reducible en $R$, entonces existen $\alpha, \beta \in R \setminus R^*$ tal que $ 2 = \alpha \beta $. tomando norma, tenemos que 
+            \begin{align*}
+                N(2) &= N(\alpha\beta) \\ 
+                4 &= N(\alpha) N(\beta)
+            \end{align*}
+            De donde, tanto para $\alpha$ como para $\beta$ se tienen que $N(\alpha) = 1, 2$, o $4$. Pero como ninguno es unidad, entonces $N(\alpha) = 2$, de donde se debe cumplir que 
+            $$ 2 = {\alpha_1}^2 + {\alpha_2}^2 n $$
+            pero esto no es posible, no tiene solución para $\alpha_1, \alpha_2$ enteros. Por lo tanto, $2$ es irreducible en $R$.
+            
+            \item Supongamos que $\sqrt{-n}$ es reducible en $R$, entonces existen $\alpha, \beta \in R \setminus R^*$ tal que $ \sqrt{-n} = \alpha \beta $. tomando norma, tenemos que
+            \begin{align*}
+                N(\sqrt{-n}) &= N(\alpha\beta) \\ 
+                n &= N(\alpha) N(\beta)
+            \end{align*}
+            Como ni $\alpha$ ni $\beta$ son unidades, entonces $N(\alpha), N(\beta) \neq 1, n$.
+
+            Como $n$ es libre de cuadrados, podemos escribirlo en su factorización en primos $n = \prod_{i=1}^{k} p_i$, donde $p_i \neq p_j$ para todo $1 \leq i,j \leq k$, por lo que, sin perdida de generalidad, podemos asumir que $N(\alpha) = \prod_{i=1}^{r} p_i$ para algún $r < k$,
+            de donde se debe cumplir que
+            $$ {\alpha_1}^2 + {\alpha_2}^2 n = \prod_{i_1}^{r} p_i $$
+
+            Pero como $\prod_{i=1}^{r}p_i < n$, entonces $\alpha_2 = 0$, pero la ecuación no tiene solución, pues $\prod_{i=1}^{r}p_i $ es libre de cuadrados. Por lo tanto, $\sqrt{-n}$ es irreducible en $R$.
+
+            \item Supongamos que $1+\sqrt{-n}$ es reducible en $R$, entonces existen $\alpha, \beta \in R \setminus R^*$ tal que $ 1+\sqrt{-n} = \alpha \beta $. tomando norma, tenemos que
+            \begin{align*}
+                N(1+\sqrt{-n}) &= N(\alpha\beta) \\ 
+                n+1 &= N(\alpha) N(\beta)
+            \end{align*}
+            Como ni $\alpha$ ni $\beta$ son unidades, entonces $N(\alpha), N(\beta) \neq 1, n+1$.
+
+            Por lo que 
+            $$\left( {\alpha_1}^2 + {\alpha_2}^2 n \right) \div n + 1$$
+
+            Así que $ {\alpha_2}^2 \leq 1$. Y sí $ {\alpha_2}^2 = 1$, entonces ${\alpha_1}^2 = 1$, pero entonces $N(\alpha) = 1+n$ lo cual es una contradicción. Así que ${\alpha_2}^2 = 0$, luego $\alpha = \alpha_1$, de manera análoga $\beta = \beta_1$, por lo que
+            $$ \alpha_1 \beta_1 = 1 + \sqrt{-n} $$
+            Lo cual no puede ser. Por lo tanto, $1+\sqrt{-n}$ es irreducible en $R$.
+        \end{itemize}
+
+        \item[b)] Veamos que $\sqrt{-n}$ no es primo en $R$. Primero, observemos que $\sqrt{-n}$ divide a $a + b\sqrt{-n}$ si $n$ divide a $a$, pues $\sqrt{-n}(x + y\sqrt{-n}) = -ny + x\sqrt{-n}$ y $ny + x\sqrt{-n} = \sqrt{-n}(x - y\sqrt{-n})$.
+        
+        Si $n$ es compuesto, $n = ab$ para $a,b \in \Z$, entonces $\sqrt{-n} \div (a + \sqrt{-n})(b + \sqrt{-n})$, pero $\sqrt{-n} \cancel{\div} (a+\sqrt{-n})$ y $\sqrt{-n} \cancel{\div} (b+\sqrt{-n})$ por lo que $\sqrt{-n}$ no es primo en $R$.
+
+        \item[c)]
+        
+    \end{enumerate}
+\end{proof}
