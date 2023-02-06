@@ -1,0 +1,2 @@
+\beamer@sectionintoc {1}{Caracterización de cuerpos finitos}{1}{0}{1}
+\beamer@sectionintoc {2}{Raíces de polinomios irreducibles}{23}{0}{2}
